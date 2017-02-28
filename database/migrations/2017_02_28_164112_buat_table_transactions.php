@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BuatTableProducts extends Migration
+class BuatTableTransactions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class BuatTableProducts extends Migration
      */
     public function up()
     {
-    Schema::create('products', function($table){
+    Schema::create('transactions', function($table){
     $table->increments('id')->unsigned();
-    $table->string('name');
-    $table->string('description', 500);
-    $table->string('price', 10);
+    $table->string('product_id');
+    $table->string('formid');
+    $table->date('tanggal');
+    $table->string('qty');
+    $table->string('total_price');
+    $table->string('subtotal');
+    $table->string('status');
     $table->timestamps();
-    });  //
-    }
-
+    });
+}
     /**
      * Reverse the migrations.
      *
@@ -29,6 +32,6 @@ class BuatTableProducts extends Migration
      */
     public function down()
     {
-       Schema::drop('produtcs');
+        Schema::drop('transactions');
     }
 }

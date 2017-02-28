@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BuatTableProducts extends Migration
+class BuatTablePelanggan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class BuatTableProducts extends Migration
      */
     public function up()
     {
-    Schema::create('products', function($table){
+    Schema::create('pelanggan', function($table){
     $table->increments('id')->unsigned();
-    $table->string('name');
-    $table->string('description', 500);
-    $table->string('price', 10);
+    $table->string('nama');
+    $table->string('telepon');
+    $table->string('alamat', 500);
+    $table->string('propinsi');
+    $table->string('kodepos', 10);
+    $table->string('formid');
     $table->timestamps();
-    });  //
-    }
+    });
+}
 
     /**
      * Reverse the migrations.
@@ -29,6 +32,6 @@ class BuatTableProducts extends Migration
      */
     public function down()
     {
-       Schema::drop('produtcs');
+       Schema::drop('pelanggan');
     }
 }
